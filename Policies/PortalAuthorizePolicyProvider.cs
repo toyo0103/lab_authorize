@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace lab_authorize.Policies
 {
+    //https://www.tektutorialshub.com/asp-net-core/policy-based-authorization-in-asp-net-core/
+    //https://docs.microsoft.com/en-us/aspnet/core/security/authorization/iauthorizationpolicyprovider?view=aspnetcore-6.0
     public class PortalAuthorizePolicyProvider : IAuthorizationPolicyProvider
     {
         public Task<AuthorizationPolicy> GetDefaultPolicyAsync()

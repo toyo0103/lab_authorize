@@ -24,12 +24,23 @@ namespace lab_authorize.Controllers
             return "hi basic~";
         }
 
+
         [AllowAnonymous]
         [HttpGet]
         [Route("anonymous")]
         public ActionResult<string> anonymous()
         {
             return "hi anonymouse~";
+        }
+
+
+        [AllowAnonymous]
+        [PortalAuthorize(action: "bbs:list.posts")]
+        [HttpGet]
+        [Route("temp")]
+        public ActionResult<string> temp()
+        {
+            return "hi temp~";
         }
     }
 }
