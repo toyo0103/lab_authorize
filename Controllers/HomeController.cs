@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using lab_authorize.Models;
-using lab_authorize.Filters;
+using lab_authorize.Policies;
 using Microsoft.AspNetCore.Authorization;
 
 namespace lab_authorize.Controllers
@@ -26,8 +24,13 @@ namespace lab_authorize.Controllers
             return View();
         }
 
-        [ClaimRequirement(MyClaimTypes.Permission, "CanReadResource")]
+        [PortalAuthorize(action: "bbs:list.posts",forAccountToken:ValidationMode.Basic, forUserToken:ValidationMode.Fully)]
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Default()
         {
             return View();
         }
